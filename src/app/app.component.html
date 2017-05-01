@@ -1,1 +1,6 @@
-<h1>Hello {{name}}</h1>
+<h1 [hidden]="isHidden">Hello {{getUserDetails()}}</h1>
+
+<input #box [value]="currentUser.name" (keyup)="0">
+<p>{{box.value}}</p>
+
+<button (click)="toggle()">Hide/Unhide</button>
