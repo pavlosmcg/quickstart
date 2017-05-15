@@ -21,13 +21,18 @@
     <div class="form-group">
       <label for="power">Hero Power</label>
       <select class="form-control" id="power" required
-        [(ngModel)]="model.power" name="power">
+        [(ngModel)]="model.power" name="power" #power="ngModel">
         <option *ngFor="let p of powers" [value]="p">
           {{p}}
         </option>
       </select>
+      <div [hidden] = "power.valid || power.pristine"
+        class="alert alert-danger">
+        This field is required
+      </div>
     </div>
 
+    <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset();">New Hero</button>
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
 </div>
