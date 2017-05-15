@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Hero } from './hero';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'hero-form',
@@ -14,7 +15,9 @@ export class HeroFormComponent {
 
   submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  onSubmit(f: NgForm): void {
+    this.submitted = true;
+   }
 
   newHero(): void {
       this.model = new Hero(42, '', '');
